@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+## R 語言程式設計與視覺化應用入門
 
-You can use the [editor on GitHub](https://github.com/yaojenkuo/learn-r-ntub/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+### Info
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+R 語言程式設計與視覺化應用入門課程網頁，課程時數 30 小時。
 
-### Markdown
+### Syllabus
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+|日期|課程|
+|---|---|
+|2017/09/27|[關於](http://yaojenkuo.io/learn-r-ntub/about.html)|
+|2017/09/27|[建立你的 R 語言開發環境](http://yaojenkuo.io/learn-r-ntub/installation.html)|
+|2017/09/27|[變數類型](http://yaojenkuo.io/learn-r-ntub/var_type.html)|
 
-```markdown
-Syntax highlighted code block
+### 推薦學習資源/書籍
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/yaojenkuo/learn-r-ntub/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+- [輕鬆學習 R 語言 - 紙本書](http://www.books.com.tw/products/0010763975)
+- [輕鬆學習 R 語言 - GitBook](https://www.learn-r-the-easy-way.tw)
+- [R in Action](https://www.manning.com/books/r-in-action-second-edition)
+- [Quick-R](http://www.statmethods.net/)
+- [R Cookbook](http://shop.oreilly.com/product/9780596809164.do)
+- [The Art of R Programming](https://www.amazon.com/Art-Programming-Statistical-Software-Design/dp/1593273843)
+- [Advanced R（Book）](https://www.amazon.com/Advanced-Chapman-Hall-Hadley-Wickham/dp/1466586966)
+- [Advanced R（Website）](http://adv-r.had.co.nz/)
+- [R Graphics Cookbook](http://shop.oreilly.com/product/0636920023135.do)
+- [R for Data Science](http://r4ds.had.co.nz/)
