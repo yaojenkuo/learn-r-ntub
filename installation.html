@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>建立你的 R 語言開發環境</title>
+  <title>變數類型</title>
     
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>建立你的 R 語言開發環境</h1><p>郭耀仁<br/>2017-09-27</p>
+<h1>變數類型</h1><p>郭耀仁<br/>2017-09-27</p>
 
 <div class="slideContent" >
 
@@ -792,43 +792,95 @@ hljs.initHighlightingOnLoad();
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>R 語言主程式</h3>
-<div class="slideContent" >
-<p>從 CRAN 下載 R 語言主程式：</p>
-
-<p><a href="https://cran.r-project.org/">https://cran.r-project.org/</a></p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>整合開發環境 RStudio</h3>
-<div class="slideContent" >
-<p>從 RStudio 下載 RStudio：</p>
-
-<p><a href="https://www.rstudio.com/products/rstudio/download3/">https://www.rstudio.com/products/rstudio/download3/</a></p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>第一次執行 RSudio</h3>
+<h3>用 `&lt;-` 建立變數</h3>
 <div class="slideContent" >
 <ul>
-<li>來源（Source）：位於左上角，編寫程式的區塊</li>
-<li>命令列（Console）：位於左下角，執行程式的區塊</li>
-<li>環境與歷史：位於右上角</li>
-<li>檔案、圖形、套件、查詢與預覽器：位於右下角</li>
+<li>按 <code>alt</code> 與 <code>-</code></li>
 </ul>
 
+<pre><code class="r">my_name &lt;- &quot;Tony&quot;
+my_name
+</code></pre>
+
+<pre><code>[1] &quot;Tony&quot;
+</code></pre>
+
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>第一個函數：`q()`</h3>
+<h3>用 `#` 做註解</h3>
+<div class="slideContent" >
+<pre><code class="r"># my_name &lt;- &quot;Tony&quot;
+# my_name
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>計算機</h3>
+<div class="slideContent" >
+<table><thead>
+<tr>
+<th>數學運算子</th>
+<th>作用</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+</code></td>
+<td>加</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>減</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>乘</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>除</td>
+</tr>
+<tr>
+<td><code>^</code> 或 <code>**</code></td>
+<td>次方</td>
+</tr>
+<tr>
+<td><code>%%</code></td>
+<td>回傳餘數</td>
+</tr>
+<tr>
+<td><code>%/%</code></td>
+<td>回傳整數</td>
+</tr>
+</tbody></table>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>計算機（2）</h3>
+<div class="slideContent" >
+<p>練習在 RStudio 中計算自己的 <a href="https://zh.wikipedia.org/wiki/%E8%BA%AB%E9%AB%98%E9%AB%94%E9%87%8D%E6%8C%87%E6%95%B8">BMI</a></p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>變數類型</h3>
 <div class="slideContent" >
 <ul>
-<li>在命令列（Console）輸入 <code>q()</code> 可以離開 RStudio</li>
+<li>R 語言的基本變數類型
+
+<ul>
+<li>數字（numeric）</li>
+<li>整數（integer）</li>
+<li>複數（complex）</li>
+<li>文字（character）</li>
+<li>邏輯值（logical）</li>
+</ul></li>
 </ul>
 
 </div>
