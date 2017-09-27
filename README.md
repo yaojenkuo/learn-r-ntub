@@ -10,7 +10,7 @@ R 語言程式設計與視覺化應用入門課程網頁，課程時數 30 小�
 |---|---|
 |2017/09/27|[關於](http://yaojenkuo.io/learn-r-ntub/about.html)|
 |2017/09/27|[建立你的 R 語言開發環境](http://yaojenkuo.io/learn-r-ntub/installation.html)|
-|2017/09/27|[變數類型](http://yaojenkuo.io/learn-r-ntub/var_type.html)|
+|2017/09/27|[變數類型](http://yaojenkuo.io/learn-r-ntub/var_types.html)|
 
 ### 推薦學習資源/書籍
 
