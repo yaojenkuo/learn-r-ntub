@@ -29,8 +29,8 @@ autosize: true
 關於講師
 ========================================================
 
-- [輕鬆學習 R 語言]()
-- [R 語言使用者的 Python 學習筆記]()
+- [輕鬆學習 R 語言](http://www.books.com.tw/products/0010763975)
+- [R 語言使用者的 Python 學習筆記](http://ithelp.ithome.com.tw/users/20103511/ironman/1077)
 - Python 與資料科學入門，玉山商業銀行（2017 夏）
 
 關於講師（2）
