@@ -14,7 +14,7 @@ R 語言程式設計與視覺化應用入門課程網頁，課程時數 30 小�
 
 ### 錄影播放清單
 
-https://www.youtube.com/playlist?list=PLEq7iw5uOtuUYkUIbMjdsMnsUGd4N2TzW
+[R 語言程式設計與視覺化應用入門](https://www.youtube.com/playlist?list=PLEq7iw5uOtuUYkUIbMjdsMnsUGd4N2TzW)
 
 ### 推薦學習資源/書籍
 
