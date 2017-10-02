@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>變數類型</h1><p>郭耀仁<br/>2017-09-27</p>
+<h1>變數類型</h1><p>郭耀仁<br/>2017-10-02</p>
 
 <div class="slideContent" >
 
@@ -863,7 +863,7 @@ my_name
 <section data-transition="linear" data-transition-speed="default">
 <h3>計算機（2）</h3>
 <div class="slideContent" >
-<p>練習在 RStudio 中計算自己的 <a href="https://zh.wikipedia.org/wiki/%E8%BA%AB%E9%AB%98%E9%AB%94%E9%87%8D%E6%8C%87%E6%95%B8">BMI</a></p>
+<p>練習：在 RStudio 中計算自己的 <a href="https://zh.wikipedia.org/wiki/%E8%BA%AB%E9%AB%98%E9%AB%94%E9%87%8D%E6%8C%87%E6%95%B8">BMI</a></p>
 
 </div>
 
@@ -872,16 +872,206 @@ my_name
 <h3>變數類型</h3>
 <div class="slideContent" >
 <ul>
+<li>用 R 語言的 <code>class()</code> 函數來告訴我們變數類型！</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>變數類型（2）</h3>
+<div class="slideContent" >
+<ul>
 <li>R 語言的基本變數類型
 
 <ul>
-<li>數字（numeric）</li>
-<li>整數（integer）</li>
-<li>複數（complex）</li>
 <li>文字（character）</li>
 <li>邏輯值（logical）</li>
+<li>浮點數（numeric）</li>
+<li>整數（integer）</li>
+<li>複數（complex）</li>
 </ul></li>
 </ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>文字（Character）</h3>
+<div class="slideContent" >
+<ul>
+<li>用雙引號（&quot;&ldquo;）或者單引號（&#39;&#39;）將文字包起來</li>
+<li>什麼時候用雙引號？什麼時候用單引號</li>
+</ul>
+
+<p><a href="https://youtu.be/0O1z3An8CFc">Joey Air Quoting</a></p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>文字（Character）（2）</h3>
+<div class="slideContent" >
+<p>拼湊 R 語言文字的函數 <code>paste()</code></p>
+
+<pre><code class="r">paste(&quot;Hello&quot;, &quot;Tony&quot;)
+</code></pre>
+
+<pre><code>[1] &quot;Hello Tony&quot;
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>文字（Character）（3）</h3>
+<div class="slideContent" >
+<p>接受使用者的輸入 <code>readline()</code> 函數</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>文字（Character）（4）</h3>
+<div class="slideContent" >
+<p>練習：讓 RStudio 問您的名字，然後會跟您打招呼</p>
+
+<pre><code>請問我該怎麼稱呼您？Tony
+&quot;Hello Tony&quot;
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>邏輯值（logical）</h3>
+<div class="slideContent" >
+<ul>
+<li>直接輸入 <code>TRUE</code> 或者 <code>FALSE</code></li>
+<li>回憶一下 R 語言對大小寫敏感（Case sensitive）的特性</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>邏輯值（logical）（2）</h3>
+<div class="slideContent" >
+<ul>
+<li>或者使用判斷條件產生邏輯值</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>邏輯判斷運算子</th>
+<th>作用</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>==</code></td>
+<td>等於</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>大於</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>小於</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>大於等於</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>小於等於</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>不等於</td>
+</tr>
+<tr>
+<td><code>%in%</code></td>
+<td>包含於</td>
+</tr>
+</tbody></table>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>數值</h3>
+<div class="slideContent" >
+<ul>
+<li>絕大多數的時候我們只要掌握浮點數就可以了</li>
+<li>整數或複數斟酌使用即可</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>運算</h3>
+<div class="slideContent" >
+<ul>
+<li>R 語言在運算時候的變數類型會自動彈性調整</li>
+<li>哪些變數類型可以運算？
+
+<ul>
+<li>數字</li>
+<li>邏輯值</li>
+</ul></li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>文字不能運算</h3>
+<div class="slideContent" >
+<p>把文字作運算會出現錯誤：</p>
+
+<pre><code class="r">&quot;Hello&quot; + &quot;Tony&quot;
+</code></pre>
+
+<pre><code>Error in &quot;Hello&quot; + &quot;Tony&quot;: non-numeric argument to binary operator
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>變數類型可以進行判斷、轉換</h3>
+<div class="slideContent" >
+<ul>
+<li>透過 <code>is.___()</code> 函數可以判斷變數類型</li>
+<li>透過 <code>as.___()</code> 函數可以轉換變數類型</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>變數類型可以進行判斷、轉換（2）</h3>
+<div class="slideContent" >
+<p>練習：讓 RStudio 問您的身高、體重，然後會告訴您 BMI 為多少？</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>日期</h3>
+<div class="slideContent" >
+<p>以西元 1970 年 1 月 1 日為 <code>0</code>，在這一天以後的每天都 <code>+1</code> 來記錄，而這一天以前的每天都 <code>-1</code> 來記錄</p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>日期時間</h3>
+<div class="slideContent" >
+<p>以西元 1970 年 1 月 1 日格林威治標準時間（Greenwich Mean Time，GMT）00 時 00 分 00 秒作為 0，在這個時間點以後的每秒都 <code>+1</code> 來記錄，這個時間點以前的每秒都 <code>-1</code> 來記錄</p>
 
 </div>
 
