@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>變數類型</title>
+  <title>資料結構</title>
     
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -784,7 +784,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>變數類型</h1><p>郭耀仁<br/>2017-10-11</p>
+<h1>資料結構</h1><p>郭耀仁<br/>2017-10-11</p>
 
 <div class="slideContent" >
 
@@ -792,104 +792,49 @@ hljs.initHighlightingOnLoad();
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>用 `&lt;-` 建立變數</h3>
+<h3>資料結構的本質</h3>
 <div class="slideContent" >
-<ul>
-<li>按 <code>alt</code> 與 <code>-</code></li>
-</ul>
+<p>儲存我們先前說明的不同變數類型：</p>
 
-<pre><code class="r">my_name &lt;- &quot;Tony&quot;
-my_name
-</code></pre>
-
-<pre><code>[1] &quot;Tony&quot;
+<pre><code class="r">sat &lt;- &quot;Saturday&quot;
+sun &lt;- &quot;Sunday&quot;
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>用 `#` 做註解</h3>
+<h3>資料結構的本質（2）</h3>
 <div class="slideContent" >
-<pre><code class="r"># my_name &lt;- &quot;Tony&quot;
-# my_name
+<p>儲存我們先前說明的不同變數類型：</p>
+
+<pre><code class="r">weekend &lt;- c(&quot;Saturday&quot;, &quot;Sunday&quot;)
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>計算機</h3>
-<div class="slideContent" >
-<table><thead>
-<tr>
-<th>數學運算子</th>
-<th>作用</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>+</code></td>
-<td>加</td>
-</tr>
-<tr>
-<td><code>-</code></td>
-<td>減</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>乘</td>
-</tr>
-<tr>
-<td><code>/</code></td>
-<td>除</td>
-</tr>
-<tr>
-<td><code>^</code> 或 <code>**</code></td>
-<td>次方</td>
-</tr>
-<tr>
-<td><code>%%</code></td>
-<td>回傳餘數</td>
-</tr>
-<tr>
-<td><code>%/%</code></td>
-<td>回傳整數</td>
-</tr>
-</tbody></table>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>計算機（2）</h3>
-<div class="slideContent" >
-<p>練習：在 RStudio 中計算自己的 <a href="https://zh.wikipedia.org/wiki/%E8%BA%AB%E9%AB%98%E9%AB%94%E9%87%8D%E6%8C%87%E6%95%B8">BMI</a></p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>變數類型</h3>
+<h3>資料結構概觀</h3>
 <div class="slideContent" >
 <ul>
-<li>用 R 語言的 <code>class()</code> 函數來告訴我們變數類型！</li>
-</ul>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>變數類型（2）</h3>
-<div class="slideContent" >
-<ul>
-<li>R 語言的基本變數類型
+<li>一維
 
 <ul>
-<li>文字（character）</li>
-<li>邏輯值（logical）</li>
-<li>浮點數（numeric）</li>
-<li>整數（integer）</li>
-<li>複數（complex）</li>
+<li>向量</li>
+<li>因素向量</li>
+</ul></li>
+<li>二維
+
+<ul>
+<li>矩陣</li>
+<li>資料框</li>
+</ul></li>
+<li>多維
+
+<ul>
+<li>陣列</li>
+<li>清單</li>
 </ul></li>
 </ul>
 
@@ -897,130 +842,192 @@ my_name
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>文字（Character）</h3>
+<h3>向量</h3>
 <div class="slideContent" >
 <ul>
-<li>用雙引號（&quot;&ldquo;）或者單引號（&#39;&#39;）將文字包起來</li>
-<li>什麼時候用雙引號？什麼時候用單引號</li>
+<li>使用 <code>c()</code> 函數建立</li>
 </ul>
 
-<p><a href="https://youtu.be/0O1z3An8CFc">Joey Air Quoting</a></p>
-
-</div>
-
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>文字（Character）（2）</h3>
-<div class="slideContent" >
-<p>拼湊 R 語言文字的函數 <code>paste()</code></p>
-
-<pre><code class="r">paste(&quot;Hello&quot;, &quot;Tony&quot;)
-</code></pre>
-
-<pre><code>[1] &quot;Hello Tony&quot;
+<pre><code class="r">weekends &lt;- c(&quot;Saturday&quot;, &quot;Sunday&quot;)
+logicals &lt;- c(TRUE, FALSE)
+numerics &lt;- c(24, 34, 87)
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>文字（Character）（3）</h3>
+<h3>向量（2）</h3>
 <div class="slideContent" >
-<p>接受使用者的輸入 <code>readline()</code> 函數</p>
+<ul>
+<li>只容許一種變數類型</li>
+</ul>
 
-</div>
+<pre><code class="r">mixed_vector &lt;- c(logicals, numerics)
+mixed_vector
+</code></pre>
 
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>文字（Character）（4）</h3>
-<div class="slideContent" >
-<p>練習：讓 RStudio 問您的名字，然後會跟您打招呼</p>
+<pre><code>[1]  1  0 24 34 87
+</code></pre>
 
-<pre><code>請問我該怎麼稱呼您？Tony
-&quot;Hello Tony&quot;
+<pre><code class="r">class(mixed_vector)
+</code></pre>
+
+<pre><code>[1] &quot;numeric&quot;
+</code></pre>
+
+<pre><code class="r">mixed_vector &lt;- c(weekends, logicals, numerics)
+mixed_vector
+</code></pre>
+
+<pre><code>[1] &quot;Saturday&quot; &quot;Sunday&quot;   &quot;TRUE&quot;     &quot;FALSE&quot;    &quot;24&quot;       &quot;34&quot;      
+[7] &quot;87&quot;      
+</code></pre>
+
+<pre><code class="r">class(mixed_vector)
+</code></pre>
+
+<pre><code>[1] &quot;character&quot;
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>邏輯值（logical）</h3>
+<h3>向量（3）</h3>
 <div class="slideContent" >
 <ul>
-<li>直接輸入 <code>TRUE</code> 或者 <code>FALSE</code></li>
-<li>回憶一下 R 語言對大小寫敏感（Case sensitive）的特性</li>
+<li>使用 <code>seq()</code> 函數可以產出數列</li>
+<li>使用 <code>rep()</code> 函數可以產出重複值</li>
 </ul>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>邏輯值（logical）（2）</h3>
+<h3>向量（4）</h3>
 <div class="slideContent" >
 <ul>
-<li>或者使用判斷條件產生邏輯值</li>
+<li>使用 <code>[]</code> 搭配索引值選擇元素</li>
 </ul>
 
-<table><thead>
-<tr>
-<th>邏輯判斷運算子</th>
-<th>作用</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>==</code></td>
-<td>等於</td>
-</tr>
-<tr>
-<td><code>&gt;</code></td>
-<td>大於</td>
-</tr>
-<tr>
-<td><code>&lt;</code></td>
-<td>小於</td>
-</tr>
-<tr>
-<td><code>&gt;=</code></td>
-<td>大於等於</td>
-</tr>
-<tr>
-<td><code>&lt;=</code></td>
-<td>小於等於</td>
-</tr>
-<tr>
-<td><code>!=</code></td>
-<td>不等於</td>
-</tr>
-<tr>
-<td><code>%in%</code></td>
-<td>包含於</td>
-</tr>
-</tbody></table>
+<pre><code class="r">workdays &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;)
+workdays[1]
+</code></pre>
+
+<pre><code>[1] &quot;Monday&quot;
+</code></pre>
+
+<pre><code class="r">workdays[2:5]
+</code></pre>
+
+<pre><code>[1] &quot;Tuesday&quot;   &quot;Wednesday&quot; &quot;Thursday&quot;  &quot;Friday&quot;   
+</code></pre>
+
+<pre><code class="r">workdays[-1]
+</code></pre>
+
+<pre><code>[1] &quot;Tuesday&quot;   &quot;Wednesday&quot; &quot;Thursday&quot;  &quot;Friday&quot;   
+</code></pre>
+
+<pre><code class="r">workdays[c(1, 4, 5)]
+</code></pre>
+
+<pre><code>[1] &quot;Monday&quot;   &quot;Thursday&quot; &quot;Friday&quot;  
+</code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>數值</h3>
+<h3>向量（5）</h3>
 <div class="slideContent" >
 <ul>
-<li>絕大多數的時候我們只要掌握浮點數就可以了</li>
-<li>整數或複數斟酌使用即可</li>
+<li>使用判斷條件產出邏輯值向量選擇元素</li>
 </ul>
+
+<pre><code class="r">logi_filter &lt;- workdays == &quot;Friday&quot;
+logi_filter
+</code></pre>
+
+<pre><code>[1] FALSE FALSE FALSE FALSE  TRUE
+</code></pre>
+
+<pre><code class="r">workdays[logi_filter]
+</code></pre>
+
+<pre><code>[1] &quot;Friday&quot;
+</code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>運算</h3>
+<h3>向量（6）</h3>
 <div class="slideContent" >
 <ul>
-<li>R 語言在運算時候的變數類型會自動彈性調整</li>
-<li>哪些變數類型可以運算？
+<li>練習用兩種方法選出 &ldquo;Phoebe Buffay&rdquo; 與 &ldquo;Chandler Bing&rdquo;</li>
+</ul>
+
+<pre><code class="r">friends_characters &lt;- c(&quot;Rachel Green&quot;, &quot;Monica Geller&quot;, &quot;Phoebe Buffay&quot;, &quot;Joey Tribbiani&quot;, &quot;Chandler Bing&quot;, &quot;Ross Geller&quot;)
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>向量（7）</h3>
+<div class="slideContent" >
+<ul>
+<li>練習用兩種方法選出 1, 2, 3, 8, 9, 10</li>
+</ul>
+
+<pre><code class="r">num_vector &lt;- 1:10
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>因素向量</h3>
+<div class="slideContent" >
+<ul>
+<li>字串向量，但是多了 <code>levels</code> 的資訊</li>
+</ul>
+
+<pre><code class="r">rgb_vec &lt;- c(&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
+rgb_fac &lt;- factor(rgb_vec)
+rgb_vec
+</code></pre>
+
+<pre><code>[1] &quot;red&quot;   &quot;green&quot; &quot;blue&quot;  &quot;green&quot; &quot;red&quot;  
+</code></pre>
+
+<pre><code class="r">rgb_fac
+</code></pre>
+
+<pre><code>[1] red   green blue  green red  
+Levels: blue green red
+</code></pre>
+
+<pre><code class="r">class(rgb_fac)
+</code></pre>
+
+<pre><code>[1] &quot;factor&quot;
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>因素向量（2）</h3>
+<div class="slideContent" >
+<ul>
+<li>兩種類型的因素向量
 
 <ul>
-<li>數字</li>
-<li>邏輯值</li>
+<li>名目型（Nominal）</li>
+<li>順序型（Ordinal）</li>
 </ul></li>
 </ul>
 
@@ -1028,69 +1035,348 @@ my_name
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>文字不能運算</h3>
+<h3>因素向量（3）</h3>
 <div class="slideContent" >
-<p>把文字作運算會出現錯誤：</p>
+<ul>
+<li>氣溫有高低之分</li>
+</ul>
 
-<pre><code class="r">&quot;Hello&quot; + &quot;Tony&quot;
+<pre><code class="r">temperature &lt;- c(&quot;Hot&quot;, &quot;Warm&quot;, &quot;Cold&quot;)
+temp_fac &lt;- factor(temperature, ordered = TRUE)
+temp_fac
 </code></pre>
 
-<pre><code>Error in &quot;Hello&quot; + &quot;Tony&quot;: non-numeric argument to binary operator
+<pre><code>[1] Hot  Warm Cold
+Levels: Cold &lt; Hot &lt; Warm
+</code></pre>
+
+<pre><code class="r">class(temp_fac)
+</code></pre>
+
+<pre><code>[1] &quot;ordered&quot; &quot;factor&quot; 
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>變數類型可以進行判斷、轉換</h3>
+<h3>因素向量（4）</h3>
 <div class="slideContent" >
 <ul>
-<li>透過 <code>is.___()</code> 函數可以判斷變數類型</li>
-<li>透過 <code>as.___()</code> 函數可以轉換變數類型</li>
+<li>氣溫有高低之分</li>
+</ul>
+
+<pre><code class="r">temperature &lt;- c(&quot;Hot&quot;, &quot;Warm&quot;, &quot;Cold&quot;)
+temp_fac &lt;- factor(temperature, ordered = TRUE, levels = c(&quot;Cold&quot;, &quot;Warm&quot;, &quot;Hot&quot;))
+temp_fac
+</code></pre>
+
+<pre><code>[1] Hot  Warm Cold
+Levels: Cold &lt; Warm &lt; Hot
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>矩陣</h3>
+<div class="slideContent" >
+<ul>
+<li>m * n 的矩陣指的是有 m 列、n 欄</li>
+<li>使用 <code>matrix()</code> 函數將向量轉換為矩陣</li>
+<li>預設是以<strong>欄的方向</strong>將元素填入矩陣</li>
 </ul>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>變數類型可以進行判斷、轉換（2）</h3>
+<h3>矩陣（2）</h3>
 <div class="slideContent" >
-<p>練習：讓 RStudio 問您的身高、體重，然後會告訴您 BMI 為多少？</p>
+<pre><code class="r">my_mat &lt;- matrix(1:10, nrow = 2)
+class(my_mat)
+</code></pre>
 
-</div>
+<pre><code>[1] &quot;matrix&quot;
+</code></pre>
 
-</section>
-<section data-transition="linear" data-transition-speed="default">
-<h3>日期</h3>
-<div class="slideContent" >
-<p>以西元 1970 年 1 月 1 日為 <code>0</code>，在這一天以後的每天都 <code>+1</code> 來記錄，而這一天以前的每天都 <code>-1</code> 來記錄</p>
+<pre><code class="r">my_mat
+</code></pre>
 
-<pre><code>Sys.Date()
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    3    5    7    9
+[2,]    2    4    6    8   10
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>日期時間</h3>
+<h3>矩陣（3）</h3>
 <div class="slideContent" >
-<p>以西元 1970 年 1 月 1 日格林威治標準時間（Greenwich Mean Time，GMT）00 時 00 分 00 秒作為 0，在這個時間點以後的每秒都 <code>+1</code> 來記錄，這個時間點以前的每秒都 <code>-1</code> 來記錄</p>
+<pre><code class="r">my_mat &lt;- matrix(1:10, nrow = 2, byrow = TRUE)
+my_mat
+</code></pre>
 
-<pre><code>Sys.time()
+<pre><code>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    2    3    4    5
+[2,]    6    7    8    9   10
 </code></pre>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>日期時間（2）</h3>
+<h3>矩陣（4）</h3>
 <div class="slideContent" >
 <ul>
-<li>時區（tz）參數的設定：</li>
+<li>使用 <code>[ , ]</code> 搭配列與欄的索引值選擇元素</li>
 </ul>
 
-<pre><code>OlsonNames()
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>資料框</h3>
+<div class="slideContent" >
+<ul>
+<li>資料框是非常重要的資料結構，如果你是 SAS/SPSS/Stata 的使用者，你可以想成是資料集（dataset）</li>
+<li>一個資料框中可以包含不同資料類別的變數</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>資料框（2）</h3>
+<div class="slideContent" >
+<pre><code class="r">name &lt;- c(&quot;蒙其D魯夫&quot;, &quot;羅羅亞索隆&quot;, &quot;娜美&quot;, &quot;賓什莫克香吉士&quot;)
+is_female &lt;- c(FALSE, FALSE, TRUE, FALSE)
+age &lt;- c(19, 21, 20, 21)
+one_piece_df &lt;- data.frame(name, is_female, age)
+class(one_piece_df)
 </code></pre>
+
+<pre><code>[1] &quot;data.frame&quot;
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>資料框（3）</h3>
+<div class="slideContent" >
+<ul>
+<li>使用中括號 <code>[ , ]</code></li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>資料框（4）</h3>
+<div class="slideContent" >
+<ul>
+<li>使用錢字號 <code>$</code></li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>資料框（5）</h3>
+<div class="slideContent" >
+<ul>
+<li>利用邏輯值向量選擇出觀測值</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>資料框（6）</h3>
+<div class="slideContent" >
+<ul>
+<li>內建資料集 <code>data()</code></li>
+<li>常用的探索型函數</li>
+</ul>
+
+<pre><code class="r">dim(iris)
+</code></pre>
+
+<pre><code>[1] 150   5
+</code></pre>
+
+<pre><code class="r">nrow(iris)
+</code></pre>
+
+<pre><code>[1] 150
+</code></pre>
+
+<pre><code class="r">ncol(iris)
+</code></pre>
+
+<pre><code>[1] 5
+</code></pre>
+
+<pre><code class="r">summary(iris)
+</code></pre>
+
+<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+       Species  
+ setosa    :50  
+ versicolor:50  
+ virginica :50  
+
+
+
+</code></pre>
+
+<pre><code class="r">str(iris)
+</code></pre>
+
+<pre><code>&#39;data.frame&#39;:   150 obs. of  5 variables:
+ $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+ $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+ $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+ $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+ $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+</code></pre>
+
+<pre><code class="r">head(iris)
+</code></pre>
+
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa
+</code></pre>
+
+<pre><code class="r">tail(iris, n = 8)
+</code></pre>
+
+<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+143          5.8         2.7          5.1         1.9 virginica
+144          6.8         3.2          5.9         2.3 virginica
+145          6.7         3.3          5.7         2.5 virginica
+146          6.7         3.0          5.2         2.3 virginica
+147          6.3         2.5          5.0         1.9 virginica
+148          6.5         3.0          5.2         2.0 virginica
+149          6.2         3.4          5.4         2.3 virginica
+150          5.9         3.0          5.1         1.8 virginica
+</code></pre>
+
+<pre><code class="r">names(iris)
+</code></pre>
+
+<pre><code>[1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot; 
+[5] &quot;Species&quot;     
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>陣列</h3>
+<div class="slideContent" >
+<ul>
+<li>擁有三個維度的矩陣</li>
+</ul>
+
+<pre><code class="r">my_vec &lt;- 1:24
+my_arr &lt;- array(my_vec, dim = c(2, 3, 4))
+my_arr
+</code></pre>
+
+<pre><code>, , 1
+
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+, , 2
+
+     [,1] [,2] [,3]
+[1,]    7    9   11
+[2,]    8   10   12
+
+, , 3
+
+     [,1] [,2] [,3]
+[1,]   13   15   17
+[2,]   14   16   18
+
+, , 4
+
+     [,1] [,2] [,3]
+[1,]   19   21   23
+[2,]   20   22   24
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>清單</h3>
+<div class="slideContent" >
+<ul>
+<li>清單可以包含我們前面介紹的任意資料結構</li>
+<li>利用雙重中括號 <code>[[]]</code> 來選擇</li>
+</ul>
+
+<pre><code class="r">genre &lt;- &quot;Sitcom&quot;
+seasons &lt;- 10
+starring &lt;- data.frame(
+  characters = c(&quot;Rachel Green&quot;, &quot;Monica Geller&quot;, &quot;Phoebe Buffay&quot;, &quot;Joey Tribbiani&quot;, &quot;Chandler Bing&quot;, &quot;Ross Geller&quot;),
+  stars = c(&quot;Jennifer Aniston&quot;, &quot;Courteney Cox&quot;, &quot;Lisa Kudrow&quot;, &quot;Matt LeBlanc&quot;, &quot;Matthew Perry&quot;, &quot;David Schwimmer&quot;)
+)
+
+friends_info &lt;- list(genre, seasons, starring)
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>清單（2）</h3>
+<div class="slideContent" >
+<ul>
+<li>或者利用 <code>$</code> 與物件名稱來選擇</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>清單（3）</h3>
+<div class="slideContent" >
+<ul>
+<li>練習選出 &ldquo;Phoebe Buffay&rdquo; 與 &ldquo;Chandler Bing&rdquo;</li>
+</ul>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>清單（4）</h3>
+<div class="slideContent" >
+<ul>
+<li>清單的重要性是什麼？
+
+<ul>
+<li>彈性的儲存空間</li>
+<li>函數的多重輸出</li>
+</ul></li>
+</ul>
 
 </div>
 
