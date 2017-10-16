@@ -219,7 +219,7 @@ class(one_piece_df)
 - 內建資料集 `data()`
 - 常用的探索型函數
 
-```{r}
+```{r results='hide'}
 dim(iris)
 nrow(iris)
 ncol(iris)
