@@ -18,7 +18,7 @@ R 語言程式設計與視覺化應用入門課程網頁，課程時數 30 小�
 
 #### 靜態繪圖
 
-- [Base Plotting System]()
+- [Base Plotting System](http://yaojenkuo.io/learn-r-ntub/base_plotting_system.html)
 - [RMarkdown]()
 - [ggplot2]()
 
