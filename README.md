@@ -6,15 +6,26 @@ R 語言程式設計與視覺化應用入門課程網頁，課程時數 30 小�
 
 ### Syllabus
 
-|日期|課程|
-|---|---|
-|2017/09/27|[關於](http://yaojenkuo.io/learn-r-ntub/about.html)|
-|2017/09/27|[建立你的 R 語言開發環境](http://yaojenkuo.io/learn-r-ntub/installation.html)|
-|2017/10/02|[變數類型](http://yaojenkuo.io/learn-r-ntub/var_types.html)|
-|2017/10/11|[資料結構](http://yaojenkuo.io/learn-r-ntub/data_str.html)|
-|2017/10/16|[流程控制](http://yaojenkuo.io/learn-r-ntub/ifelse.html)|
-|2017/10/18|[迴圈](http://yaojenkuo.io/learn-r-ntub/loop.html)|
-|2017/10/23|[自訂函數](http://yaojenkuo.io/learn-r-ntub/function.html)|
+#### 基礎
+
+- [關於](http://yaojenkuo.io/learn-r-ntub/about.html)
+- [建立你的 R 語言開發環境](http://yaojenkuo.io/learn-r-ntub/installation.html)
+- [變數類型](http://yaojenkuo.io/learn-r-ntub/var_types.html)
+- [資料結構](http://yaojenkuo.io/learn-r-ntub/data_str.html)
+- [流程控制](http://yaojenkuo.io/learn-r-ntub/ifelse.html)
+- [迴圈](http://yaojenkuo.io/learn-r-ntub/loop.html)
+- [自訂函數](http://yaojenkuo.io/learn-r-ntub/function.html)
+
+#### 靜態繪圖
+
+- [Base Plotting System]()
+- [RMarkdown]()
+- [ggplot2]()
+
+#### 動態繪圖
+
+- [plotly]()
+- [shiny]()
 
 ### 錄影播放清單
 
