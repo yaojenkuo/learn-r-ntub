@@ -146,3 +146,17 @@ par(mfrow = c(m, n))
 ========================================================
 
 http://www.r-graph-gallery.com/
+
+作業
+========================================================
+
+- 建立一個 2X2 的畫布
+- 在上面畫出四個不同類型的圖形
+
+```{r echo=FALSE}
+par(mfrow = c(2, 2))
+plot(cars)
+barplot(table(mtcars$gear))
+hist(rnorm(10000), col = "skyblue", border = FALSE)
+curve(dnorm, from = -3, to = 3)
+```

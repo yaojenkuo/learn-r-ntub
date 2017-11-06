@@ -167,3 +167,11 @@ par(mfrow = c(m, n))
 ========================================================
 
 http://www.r-graph-gallery.com/
+
+作業
+========================================================
+
+- 建立一個 2X2 的畫布
+- 在上面畫出四個不同類型的圖形
+
+![plot of chunk unnamed-chunk-8](base_plotting_system-figure/unnamed-chunk-8-1.png)
