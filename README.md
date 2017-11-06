@@ -35,6 +35,10 @@ R 語言程式設計與視覺化應用入門課程網頁，課程時數 30 小�
 
 <http://instacode.live/channel/tony>
 
+### 作業繳交資料夾
+
+[Google Drive](https://drive.google.com/drive/folders/1XbNBxb4i3QnqVwCUysEVLVVApN6vWr8c?usp=sharing)
+
 ### 推薦學習資源/書籍
 
 - [輕鬆學習 R 語言 - 紙本書](http://www.books.com.tw/products/0010763975)
