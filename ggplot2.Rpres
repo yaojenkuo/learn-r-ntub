@@ -1,0 +1,211 @@
+ggplot2
+========================================================
+author: 郭耀仁
+date: `r Sys.Date()`
+autosize: true
+
+ggplot2 套件
+========================================================
+
+- 安裝套件
+
+```
+install.packages("ggplot2")
+```
+
+- 載入套件
+
+```{r}
+library(ggplot2)
+```
+
+圖形目的
+========================================================
+
+- 分配
+- 相關
+- 排名
+- 時間序列
+
+分配
+========================================================
+
+- 直方圖
+- 密度圖
+- 盒鬚圖
+
+直方圖
+========================================================
+
+`ggplot() + geom_histogram()`
+
+```{r}
+hist_data <- rnorm(5000)
+hist_df <- data.frame(hist_data = hist_data)
+
+ggplot(hist_df, aes(x = hist_data)) +
+  geom_histogram(bins = 40, fill = rgb(1, 0, 0, 0.5))
+```
+
+直方圖（2）
+========================================================
+
+```{r echo = FALSE}
+left_hist <- rnorm(5000)
+right_hist <- rnorm(5000, mean = 3)
+hist_df <- data.frame(left_hist, right_hist)
+hist_df <- tidyr::gather(hist_df, key = dist, value = norm_data, left_hist, right_hist)
+```
+
+```{r results='hold'}
+head(hist_df)
+str(hist_df)
+unique(hist_df)
+```
+
+直方圖（3）
+========================================================
+
+`+ scale_fill_manual()` 自行指定顏色
+
+```{r}
+ggplot(hist_df, aes(x = norm_data, fill = dist)) +
+  geom_histogram(bins = 40) +
+  scale_fill_manual(breaks = c("left_hist", "right_hist"), values=c(rgb(1, 0, 0, 0.3), rgb(0, 0, 1, 0.3)))
+```
+
+直方圖（4）
+========================================================
+
+`+ facet_wrap()` 展開多個直方圖
+
+```{r}
+ggplot(hist_df, aes(x = norm_data, fill = dist)) +
+  geom_histogram(bins = 40, alpha = 0.5) +
+  facet_wrap(~ dist, ncol = 1)
+```
+
+密度圖
+========================================================
+
+`ggplot() + geom_density()`
+
+```{r}
+ggplot(hist_df, aes(x = norm_data, fill = dist, colour = dist)) +
+  geom_density(alpha = 0.3)
+```
+
+盒鬚圖
+========================================================
+
+`ggplot() + geom_boxplot()`
+
+```{r}
+ggplot(iris, aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot()
+```
+
+相關
+========================================================
+
+- 散佈圖
+
+散佈圖
+========================================================
+
+`ggplot() + geom_point()`
+
+```{r}
+ggplot(cars, aes(x = speed, y = dist)) +
+  geom_point()
+```
+
+排名
+========================================================
+
+- 長條圖
+
+長條圖
+========================================================
+
+`ggplot() + geom_bar()`
+
+```{r}
+ice_cream_flavors <- c("vanilla", "chocolate", "matcha", "others")
+ice_cream_sales <- round(runif(4, min = 50, max = 200))
+ice_cream_df <- data.frame(ice_cream_flavors, ice_cream_sales)
+ggplot(ice_cream_df, aes(x = ice_cream_flavors, y = ice_cream_sales, fill = ice_cream_flavors)) +
+  geom_bar(alpha = 0.5, stat = "identity") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
+長條圖（2）
+========================================================
+
+```{r}
+ice_cream_df$ice_cream_flavors <- factor(ice_cream_df$ice_cream_flavors, levels = as.character(ice_cream_df[order(ice_cream_df$ice_cream_sales), ][, "ice_cream_flavors"]))
+ggplot(ice_cream_df, aes(x = ice_cream_flavors, y = ice_cream_sales, fill = ice_cream_flavors)) +
+  geom_bar(alpha = 0.5, stat = "identity") +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  geom_text(aes(label = ice_cream_sales), vjust = 1.6, size = 4)
+```
+
+時間序列
+========================================================
+
+- 線圖
+
+線圖
+========================================================
+
+`ggplot() + geom_line()`
+
+```{r}
+library(Quandl)
+msft <- Quandl("WIKI/MSFT", start_date="2017-01-01", end_date="2017-10-31", type = "raw")
+ggplot(msft, aes(x = Date, y = Close)) +
+  geom_line()
+```
+
+切割畫布
+========================================================
+
+- 切割畫布為 m 列，n 欄
+
+```
+install.packages("gridExtra")
+library(gridExtra)
+
+grid.arrange(gg1, gg2, nrow = m, ncol = n)
+```
+
+學習繪製圖形的最好辦法
+========================================================
+
+- http://ggplot2.tidyverse.org/reference/index.html
+- http://www.r-graph-gallery.com/
+
+作業
+========================================================
+
+- 建立一個 2X2 的畫布
+- 在上面畫出四個不同類型的圖形
+
+```{r echo=FALSE}
+library(gridExtra)
+
+gg1 <- ggplot(hist_df, aes(x = norm_data, fill = dist, colour = dist)) +
+  geom_density(alpha = 0.3)
+gg2 <- ggplot(ice_cream_df, aes(x = ice_cream_flavors, y = ice_cream_sales, fill = ice_cream_flavors)) +
+  geom_bar(alpha = 0.5, stat = "identity") +
+  theme_minimal() +
+  theme(legend.position = "none")
+gg3 <- ggplot(msft, aes(x = Date, y = Close)) +
+  geom_line()
+gg4 <- ggplot(cars, aes(x = speed, y = dist)) +
+  geom_point()
+
+grid.arrange(gg1, gg2, gg3, gg4, nrow = 2)
+```
