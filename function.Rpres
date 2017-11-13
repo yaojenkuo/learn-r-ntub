@@ -124,7 +124,7 @@ circle_calculator(3)$circum
 回家作業
 ========================================================
 
-1. `count_primes(a, b)` 函數：算出 a、b 之間有幾個質數
+- `count_primes(a, b)` 函數：算出 a、b 之間有幾個質數
 
 ```{r echo=FALSE}
 is_prime <- function(x) {
@@ -157,7 +157,7 @@ count_primes(3, 7)
 回家作業
 ========================================================
 
-2. `fib_generator(f1, f2, f_len)` 函數：回傳符合使用者輸入的 Fibonacci 數列
+- `fib_generator(f1, f2, f_len)` 函數：回傳符合使用者輸入的 Fibonacci 數列
 
 ```{r echo = FALSE}
 fib_generator <- function(f1, f2, f_len) {
@@ -181,7 +181,7 @@ fib_generator(0, 1, 20)
 回家作業
 ========================================================
 
-3. `my_sd(x)` 函數：回傳 x 這個向量中數字的樣本標準差
+- `my_sd(x)` 函數：回傳 x 這個向量中數字的樣本標準差
 
 $$s = \sqrt{\frac{1}{N-1}\displaystyle\sum_{i=1}^{N}(x_i - \bar{x})^2}$$
 
