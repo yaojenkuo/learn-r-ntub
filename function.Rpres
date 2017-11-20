@@ -62,12 +62,18 @@ circle_calculator <- function(radius, is_area) {
     return(circle_circum)
   }
 }
+```
+
+圓形計算機（2）
+========================================================
+
+```{r}
 # 呼叫函數
 circle_calculator(3, TRUE) # 計算圓面積
 circle_calculator(is_area = FALSE, radius = 3) # 計算圓周長
 ```
 
-圓形計算機（2）
+圓形計算機（3）
 ========================================================
 
 - 參數的預設值
@@ -83,12 +89,18 @@ circle_calculator <- function(radius, is_area = TRUE) {
     return(circle_circum)
   }
 }
+```
+
+圓形計算機（4）
+========================================================
+
+```{r}
 # 呼叫函數
 circle_calculator(3) # 預設計算圓面積
 circle_calculator(is_area = FALSE, radius = 3) # 計算圓周長
 ```
 
-圓形計算機（3）
+圓形計算機（5）
 ========================================================
 
 - 用 list 資料結構處理多個輸出
@@ -104,6 +116,12 @@ circle_calculator <- function(radius) {
   )
   return(list_to_return)
 }
+```
+
+圓形計算機（6）
+========================================================
+
+```{r}
 # 呼叫函數
 circle_calculator(3)$area
 circle_calculator(3)$circum

@@ -794,7 +794,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>函數</h1><p>郭耀仁<br/>2017-11-13</p>
+<h1>函數</h1><p>郭耀仁<br/>2017-11-20</p>
 
 <div class="slideContent" >
 
@@ -886,17 +886,6 @@ circle_calculator &lt;- function(radius, is_area) {
     return(circle_circum)
   }
 }
-# 呼叫函數
-circle_calculator(3, TRUE) # 計算圓面積
-</code></pre>
-
-<pre><code>[1] 28.27433
-</code></pre>
-
-<pre><code class="r">circle_calculator(is_area = FALSE, radius = 3) # 計算圓周長
-</code></pre>
-
-<pre><code>[1] 18.84956
 </code></pre>
 
 </div>
@@ -905,22 +894,8 @@ circle_calculator(3, TRUE) # 計算圓面積
 <section data-transition="linear" data-transition-speed="default">
 <h3>圓形計算機（2）</h3>
 <div class="slideContent" >
-<ul>
-<li>參數的預設值</li>
-</ul>
-
-<pre><code class="r"># 宣告函數
-circle_calculator &lt;- function(radius, is_area = TRUE) {
-  if (is_area == TRUE) {
-    circle_area &lt;- pi * radius**2
-    return(circle_area)
-  } else {
-    circle_circum &lt;- 2 * pi * radius
-    return(circle_circum)
-  }
-}
-# 呼叫函數
-circle_calculator(3) # 預設計算圓面積
+<pre><code class="r"># 呼叫函數
+circle_calculator(3, TRUE) # 計算圓面積
 </code></pre>
 
 <pre><code>[1] 28.27433
@@ -939,6 +914,47 @@ circle_calculator(3) # 預設計算圓面積
 <h3>圓形計算機（3）</h3>
 <div class="slideContent" >
 <ul>
+<li>參數的預設值</li>
+</ul>
+
+<pre><code class="r"># 宣告函數
+circle_calculator &lt;- function(radius, is_area = TRUE) {
+  if (is_area == TRUE) {
+    circle_area &lt;- pi * radius**2
+    return(circle_area)
+  } else {
+    circle_circum &lt;- 2 * pi * radius
+    return(circle_circum)
+  }
+}
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>圓形計算機（4）</h3>
+<div class="slideContent" >
+<pre><code class="r"># 呼叫函數
+circle_calculator(3) # 預設計算圓面積
+</code></pre>
+
+<pre><code>[1] 28.27433
+</code></pre>
+
+<pre><code class="r">circle_calculator(is_area = FALSE, radius = 3) # 計算圓周長
+</code></pre>
+
+<pre><code>[1] 18.84956
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>圓形計算機（5）</h3>
+<div class="slideContent" >
+<ul>
 <li>用 list 資料結構處理多個輸出</li>
 </ul>
 
@@ -952,7 +968,15 @@ circle_calculator &lt;- function(radius) {
   )
   return(list_to_return)
 }
-# 呼叫函數
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>圓形計算機（6）</h3>
+<div class="slideContent" >
+<pre><code class="r"># 呼叫函數
 circle_calculator(3)$area
 </code></pre>
 

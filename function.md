@@ -1,7 +1,7 @@
 函數
 ========================================================
 author: 郭耀仁
-date: 2017-11-13
+date: 2017-11-20
 autosize: true
 
 函數型編程
@@ -68,41 +68,15 @@ circle_calculator <- function(radius, is_area) {
     return(circle_circum)
   }
 }
-# 呼叫函數
-circle_calculator(3, TRUE) # 計算圓面積
-```
-
-```
-[1] 28.27433
-```
-
-```r
-circle_calculator(is_area = FALSE, radius = 3) # 計算圓周長
-```
-
-```
-[1] 18.84956
 ```
 
 圓形計算機（2）
 ========================================================
 
-- 參數的預設值
-
 
 ```r
-# 宣告函數
-circle_calculator <- function(radius, is_area = TRUE) {
-  if (is_area == TRUE) {
-    circle_area <- pi * radius**2
-    return(circle_area)
-  } else {
-    circle_circum <- 2 * pi * radius
-    return(circle_circum)
-  }
-}
 # 呼叫函數
-circle_calculator(3) # 預設計算圓面積
+circle_calculator(3, TRUE) # 計算圓面積
 ```
 
 ```
@@ -120,6 +94,46 @@ circle_calculator(is_area = FALSE, radius = 3) # 計算圓周長
 圓形計算機（3）
 ========================================================
 
+- 參數的預設值
+
+
+```r
+# 宣告函數
+circle_calculator <- function(radius, is_area = TRUE) {
+  if (is_area == TRUE) {
+    circle_area <- pi * radius**2
+    return(circle_area)
+  } else {
+    circle_circum <- 2 * pi * radius
+    return(circle_circum)
+  }
+}
+```
+
+圓形計算機（4）
+========================================================
+
+
+```r
+# 呼叫函數
+circle_calculator(3) # 預設計算圓面積
+```
+
+```
+[1] 28.27433
+```
+
+```r
+circle_calculator(is_area = FALSE, radius = 3) # 計算圓周長
+```
+
+```
+[1] 18.84956
+```
+
+圓形計算機（5）
+========================================================
+
 - 用 list 資料結構處理多個輸出
 
 
@@ -134,6 +148,13 @@ circle_calculator <- function(radius) {
   )
   return(list_to_return)
 }
+```
+
+圓形計算機（6）
+========================================================
+
+
+```r
 # 呼叫函數
 circle_calculator(3)$area
 ```
