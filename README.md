@@ -15,12 +15,13 @@ R 語言程式設計與視覺化應用入門課程網頁，課程時數 30 小�
 - [流程控制](http://yaojenkuo.io/learn-r-ntub/ifelse.html)
 - [迴圈](http://yaojenkuo.io/learn-r-ntub/loop.html)
 - [自訂函數](http://yaojenkuo.io/learn-r-ntub/function.html)
+- [資料載入與寫出](http://yaojenkuo.io/learn-r-ntub/import_data.html)
+- [Tidyverse 簡介](http://yaojenkuo.io/learn-r-ntub/intro_2_tidyverse.html)
 
 #### 靜態繪圖
 
 - [Base Plotting System](http://yaojenkuo.io/learn-r-ntub/base_plotting_system.html)
 - [ggplot2](http://yaojenkuo.io/learn-r-ntub/ggplot2.html)
-- [RMarkdown]()
 
 #### 動態繪圖
 
