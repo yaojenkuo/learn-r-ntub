@@ -22,11 +22,12 @@ R 語言程式設計與視覺化應用入門課程網頁，課程時數 30 小�
 
 - [Base Plotting System](http://yaojenkuo.io/learn-r-ntub/base_plotting_system.html)
 - [ggplot2](http://yaojenkuo.io/learn-r-ntub/ggplot2.html)
+- [Exploratory Data Analysis: Electric Power Consumption](ttp://yaojenkuo.io/learn-r-ntub/jhu_eda_w1.html)
 
 #### 動態繪圖
 
-- [plotly]()
-- [shiny]()
+- [plotly 入門](http://yaojenkuo.io/learn-r-ntub/intro_2_plotly.html)
+- [shiny 入門]()
 
 ### 錄影播放清單
 
