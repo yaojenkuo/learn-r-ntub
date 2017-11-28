@@ -1,0 +1,134 @@
+---
+title: "plotly 入門"
+author: 郭耀仁
+date: "`r Sys.Date()`"
+output: 
+  revealjs::revealjs_presentation:
+    theme: black
+    highlight: zenburn
+    center: true
+---
+
+# 準備事項
+
+## 安裝與載入
+
+```
+install.packages("plotly")
+install.packages("gapminder")
+install.pacakges("tidyverser")
+```
+
+```{r message=FALSE}
+library(plotly)
+library(gapminder)
+library(tidyverse)
+```
+
+## gapminder 資料
+
+還記得 Hans Rosling 的 The best stats you've ever seen 嗎？
+
+```{r}
+dim(gapminder)
+head(gapminder)
+```
+
+# 繪製分配的圖形
+
+## 直方圖
+
+```{r}
+gapminder_2007 <- gapminder %>%
+  filter(year == 2007)
+p <- plot_ly(data = gapminder_2007, x = ~gdpPercap, type = "histogram")
+```
+
+## 顯示直方圖
+
+```{r}
+p
+```
+
+## 盒鬚圖
+
+```{r}
+p <- plot_ly(data = gapminder_2007, x = ~continent, y = ~lifeExp, color = ~continent, type = "box")
+```
+
+## 顯示盒鬚圖
+
+```{r}
+p
+```
+
+# 繪製相關的圖形
+
+## 散佈圖
+
+```{r}
+p <- plot_ly(data = gapminder_2007, x = ~gdpPercap, y = ~lifeExp, color = ~continent, type = "scatter", mode = "markers")
+```
+
+## 顯示散佈圖
+
+```{r}
+p
+```
+
+# 繪製排名的圖形
+
+## 長條圖
+
+```{r}
+north_asia <- gapminder_2007 %>%
+  filter(country %in% c("China", "Taiwan", "Japan", "Korea, Rep."))
+north_asia$country <- as.character(north_asia$country)
+p <- plot_ly(data = north_asia, x = ~country, y = ~gdpPercap, type = "bar", color = ~country)
+```
+
+## 顯示長條圖
+
+```{r}
+p
+```
+
+# 繪製時間序列的圖形
+
+## 線圖
+
+```{r}
+twn <- gapminder %>%
+  filter(country == "Taiwan")
+p <- plot_ly(data = twn, x = ~year, y = ~lifeExp, type = "scatter", mode = "lines")
+```
+
+## 顯示線圖
+
+```{r}
+p
+```
+
+# 切割畫布
+
+## 準備資料
+
+```{r}
+north_asia <- gapminder %>%
+  filter(country %in% c("China", "Taiwan", "Japan", "Korea, Rep."))
+north_asia$country <- as.character(north_asia$country)
+p1 <- north_asia %>%
+  filter(country == "Japan") %>%
+  plot_ly(x = ~year, y = ~gdpPercap,  type = "scatter", mode = "lines") %>%
+  add_lines(name = ~"Japan")
+p2 <- north_asia %>%
+  filter(country == "Korea, Rep.") %>%
+  plot_ly(x = ~year, y = ~gdpPercap,  type = "scatter", mode = "lines") %>%
+  add_lines(name = ~"Korea, Rep.")
+```
+
+## `subplot` 函數
+
+```{r}
+subplot(p1, p2)
+```
