@@ -27,7 +27,7 @@ R 語言程式設計與視覺化應用入門課程網頁，課程時數 30 小�
 #### 動態繪圖
 
 - [plotly 入門](http://yaojenkuo.io/learn-r-ntub/intro_2_plotly.html)
-- [shiny 入門]()
+- [shiny 入門](http://yaojenkuo.io/learn-r-ntub/intro_2_shiny.html)
 
 ### 錄影播放清單
 
