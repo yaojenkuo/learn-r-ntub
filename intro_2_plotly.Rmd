@@ -25,6 +25,12 @@ library(gapminder)
 library(tidyverse)
 ```
 
+## 目的
+
+- 製作具有互動元件的圖表
+- 讓使用者可以略過 JavaScript
+- 讓使用者繼續使用 R
+
 ## gapminder 資料
 
 還記得 Hans Rosling 的 The best stats you've ever seen 嗎？
@@ -131,4 +137,53 @@ p2 <- north_asia %>%
 
 ```{r}
 subplot(p1, p2)
+```
+
+# 實作簡易版的 Hans Rosling: The best stats you've ever seen
+
+## 1952 年的氣泡圖
+
+```{r}
+gapminder_1952 <- gapminder %>%
+  filter(year == 1952)
+bubble_1952 <- gapminder_1952 %>% 
+  plot_ly(x = ~gdpPercap, y = ~lifeExp, color = ~continent, size = ~pop, type = "scatter", mode = "markers",  sizes = c(10, 1000), text = ~country)
+```
+
+---
+
+```{r}
+bubble_1952
+```
+
+## 將 X 軸改為 log scale
+
+```{r}
+bubble_1952_log <- gapminder_1952 %>% 
+  plot_ly(x = ~gdpPercap, y = ~lifeExp, color = ~continent, size = ~pop, type = "scatter", mode = "markers",  sizes = c(10, 1000), text = ~country) %>%
+  layout(xaxis = list(type = "log"))
+```
+
+---
+
+```{r}
+bubble_1952_log
+```
+
+## 繪製所有年份的氣泡圖
+
+新增 `frame = ~year` 參數
+
+```{r}
+bubble_chart <- gapminder %>% 
+  plot_ly(x = ~gdpPercap, y = ~lifeExp, color = ~continent, size = ~pop, type = "scatter", mode = "markers", sizes = c(10, 1000), text = ~country, frame = ~year) %>%
+  layout(title = "Gapminder Data Visualization",
+         xaxis = list(title = "GDP Per Capita", type = "log"),
+         yaxis = list(title = "Life Expectancy"))
+```
+
+---
+
+```{r}
+bubble_chart
 ```
