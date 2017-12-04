@@ -130,7 +130,3 @@ shinyServer(function(input, output) {
 - [www/plotlyGraphWidget.js](https://storage.googleapis.com/intro2shiny/plotlyGraphWidget.R)
 
 ## {data-background-iframe="https://yaojenkuo.shinyapps.io/gapminder_app/"}
-
-## test
-
-<iframe src="https://yaojenkuo.shinyapps.io/gapminder_app/"></iframe>
