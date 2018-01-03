@@ -1,5 +1,5 @@
 ---
-title: "臺北市各行政區家戶所得、支出與房價"
+title: "臺北市各行政區家戶所得、支出與房價：資料"
 author: 郭耀仁
 date: "`r Sys.Date()`"
 output: 
@@ -96,31 +96,47 @@ file_path <- "https://storage.googleapis.com/ntub_exercise/hh_income_expense.csv
 hh <- read.csv(file_path, skip = 1, header = FALSE, stringsAsFactors = FALSE)
 names(hh) <- c("year", "district", "hh", "labor_hh", "income_hh", "expense_hh_1", "expense_hh_2")
 hh <- hh[1:(nrow(hh) - 3), ]
+```
+
+## 整理好的家戶所得資料
+
+```{r}
 head(hh)
 ```
 
 ## 整理房地產交易價格資料
 
 ```{r}
-file_names <- sprintf("downfile (%i).txt", 1:10)
-file_names <- c("downfile.txt", file_names)
-txt_files <- paste0("~/Downloads/", file_names)
-districts <- c("大同區", "中山區", "中正區", "萬華區", "文山區", "大安區", "信義區", "南港區", "松山區", "內湖區", "士林區", "北投區") 
-district_house_price_list <- list()
-for (i in 1:length(txt_files)) {
-  df <- read.table(txt_files[i], skip = 4, fileEncoding = "big5", stringsAsFactors = FALSE)
-  df$district <- districts[i]
-  names(df) <- c("year", "quarter", "road_1", "road_2", "road_width", "place_type", "building_type", "structure", "construction_year", "floor_1", "floor_2", "location_type", "area_transfer", "house_transfer", "ttl_price", "price_per", "district")
-  district_house_price_list[[i]] <- df
-}
-district_house_price_df <- district_house_price_list[[1]]
-for (i in 2:length(district_house_price_list)) {
-  district_house_price_df <- rbind(district_house_price_df, district_house_price_list[[i]])
+get_district_house_price_df <- function() {
+  file_names <- sprintf("downfile (%i).txt", 1:10)
+  file_names <- c("downfile.txt", file_names)
+  txt_files <- paste0("~/Downloads/", file_names)
+  districts <- c("大同區", "中山區", "中正區", "萬華區", "文山區", "大安區", "信義區", "南港區", "松山區", "內湖區", "士林區", "北投區") 
+  district_house_price_list <- list()
+  for (i in 1:length(txt_files)) {
+    df <- read.table(txt_files[i], skip = 4, fileEncoding = "big5", stringsAsFactors = FALSE)
+    df$district <- districts[i]
+    names(df) <- c("year", "quarter", "road_1", "road_2", "road_width", "place_type", "building_type", "structure", "construction_year", "floor_1", "floor_2", "location_type", "area_transfer", "house_transfer", "ttl_price", "price_per", "district")
+    district_house_price_list[[i]] <- df
+  }
+  district_house_price_df <- district_house_price_list[[1]]
+  for (i in 2:length(district_house_price_list)) {
+    district_house_price_df <- rbind(district_house_price_df, district_house_price_list[[i]])
+  }
+  return(district_house_price_df)
 }
 ```
 
 ## 整理好的房地產交易價格資料
 
 ```{r}
+district_house_price_df <- get_district_house_price_df()
 head(district_house_price_df)
+```
+
+## 輸出整理好的資料為 csv
+
+```{r eval=FALSE}
+write.csv(hh, file = "hh.csv", row.names = FALSE)
+write.csv(district_house_price_df, file = "district_house_price.csv", row.names = FALSE)
 ```
