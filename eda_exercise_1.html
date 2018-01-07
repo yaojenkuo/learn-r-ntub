@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="郭耀仁" />
-  <meta name="dcterms.date" content="2018-01-03" />
+  <meta name="dcterms.date" content="2018-01-07" />
   <title>臺北市各行政區家戶所得、支出與房價：資料篇</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -495,7 +495,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section>
     <h1 class="title">臺北市各行政區家戶所得、支出與房價：資料篇</h1>
     <h2 class="author">郭耀仁</h2>
-    <h3 class="date">2018-01-03</h3>
+    <h3 class="date">2018-01-07</h3>
 </section>
 
 <section><section class="titleslide slide level1"><h1>資料擷取</h1></section><section class="slide level2">
@@ -517,38 +517,25 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_district_data &lt;-<span class="st"> </span><span class="cf">function</span>(villages) {
   <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(villages)) {
     remDr<span class="op">$</span><span class="kw">open</span>()
+    remDr<span class="op">$</span><span class="kw">maxWindowSize</span>()
     remDr<span class="op">$</span><span class="kw">navigate</span>(<span class="st">&quot;https://www.land.moi.gov.tw/chhtml/property.asp?cid=830&quot;</span>)
     webElem &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">'xpath'</span>, <span class="dt">value =</span> <span class="st">&quot;//select[@id='city']&quot;</span>)
-    webElem<span class="op">$</span><span class="kw">clickElement</span>()
     webElem<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="st">&quot;臺北市&quot;</span>))
     webElem &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">'xpath'</span>, <span class="dt">value =</span> <span class="st">&quot;//select[@id='village']&quot;</span>)
-    webElem<span class="op">$</span><span class="kw">clickElement</span>()
     webElem<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(villages[i]))
-    webElem<span class="op">$</span><span class="kw">clickElement</span>()
     webElem &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">'xpath'</span>, <span class="dt">value =</span> <span class="st">&quot;//select[@id='syear'][1]&quot;</span>)
-    webElem<span class="op">$</span><span class="kw">clickElement</span>()
-    webElem<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="st">'100'</span>))
-    webElem<span class="op">$</span><span class="kw">clickElement</span>()
-    webElem &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">'xpath'</span>, <span class="dt">value =</span> <span class="st">&quot;//select[@id='syear'][2]&quot;</span>)
-    webElem<span class="op">$</span><span class="kw">clickElement</span>()
-    webElem<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="st">'3'</span>))
-    webElem<span class="op">$</span><span class="kw">clickElement</span>()
-    webElem &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">'xpath'</span>, <span class="dt">value =</span> <span class="st">&quot;//select[@id='syear'][3]&quot;</span>)
-    webElem<span class="op">$</span><span class="kw">clickElement</span>()
-    webElem<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="st">'101'</span>))
-    webElem<span class="op">$</span><span class="kw">clickElement</span>()
-    webElem &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">'xpath'</span>, <span class="dt">value =</span> <span class="st">&quot;//select[@id='syear'][4]&quot;</span>)
-    webElem<span class="op">$</span><span class="kw">clickElement</span>()
-    webElem<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="st">'3'</span>))
-    webElem<span class="op">$</span><span class="kw">clickElement</span>()
-    webElem &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">'xpath'</span>, <span class="dt">value =</span> <span class="st">&quot;//input[@class='button'][1]&quot;</span>)
+    webElem<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="st">'100'</span>, <span class="dt">key =</span> <span class="st">&quot;enter&quot;</span>))
+    webElem &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">'css'</span>, <span class="dt">value =</span> <span class="st">&quot;.button:nth-child(1)&quot;</span>)
     webElem<span class="op">$</span><span class="kw">clickElement</span>()
     window_ids &lt;-<span class="st"> </span><span class="kw">unlist</span>(remDr<span class="op">$</span><span class="kw">getWindowHandles</span>())
     new_window_id &lt;-<span class="st"> </span>window_ids[<span class="dv">2</span>]
     remDr<span class="op">$</span><span class="kw">switchToWindow</span>(new_window_id)
-    webElem &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">'xpath'</span>, <span class="dt">value =</span> <span class="st">&quot;//input[@id='submit1']&quot;</span>)
+    webElem &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="st">&quot;css&quot;</span>, <span class="st">&quot;body&quot;</span>)
+    webElem<span class="op">$</span><span class="kw">sendKeysToElement</span>(<span class="kw">list</span>(<span class="dt">key =</span> <span class="st">&quot;end&quot;</span>))
+    <span class="kw">Sys.sleep</span>(<span class="dv">10</span>)
+    webElem &lt;-<span class="st"> </span>remDr<span class="op">$</span><span class="kw">findElement</span>(<span class="dt">using =</span> <span class="st">'css'</span>, <span class="dt">value =</span> <span class="st">&quot;#submit1&quot;</span>)
     webElem<span class="op">$</span><span class="kw">clickElement</span>()
-    <span class="kw">Sys.sleep</span>(<span class="kw">sample</span>(<span class="dv">10</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">size =</span> <span class="dv">1</span>))
+    <span class="kw">Sys.sleep</span>(<span class="kw">sample</span>(<span class="dv">5</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">size =</span> <span class="dv">1</span>))
     remDr<span class="op">$</span><span class="kw">close</span>()
   }
 }</code></pre></div>
@@ -633,6 +620,12 @@ hh &lt;-<span class="st"> </span>hh[<span class="dv">1</span><span class="op">:<
 <h2>輸出整理好的資料為 csv</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(hh, <span class="dt">file =</span> <span class="st">&quot;hh.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)
 <span class="kw">write.csv</span>(district_house_price_df, <span class="dt">file =</span> <span class="st">&quot;district_house_price.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</code></pre></div>
+</section><section id="-csv-" class="slide level2">
+<h2>整理好的 csv 檔案</h2>
+<ul>
+<li><a href="https://storage.googleapis.com/ntub_exercise/hh.csv">hh.csv</a></li>
+<li><a href="https://storage.googleapis.com/ntub_exercise/district_house_price.csv">district_house_price.csv</a></li>
+</ul>
 </section></section>
     </div>
   </div>
