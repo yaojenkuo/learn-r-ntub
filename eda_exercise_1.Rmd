@@ -83,6 +83,7 @@ file_path <- "https://storage.googleapis.com/ntub_exercise/hh_income_expense.csv
 hh <- read.csv(file_path, skip = 1, header = FALSE, stringsAsFactors = FALSE)
 names(hh) <- c("year", "district", "hh", "labor_hh", "income_hh", "expense_hh_1", "expense_hh_2")
 hh <- hh[1:(nrow(hh) - 3), ]
+hh$district <- gsub(pattern = "^\\s", hh$district, replacement = "")
 ```
 
 ## 整理好的家戶所得資料
