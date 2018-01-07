@@ -95,7 +95,7 @@ head(hh)
 
 ```{r}
 get_district_house_price_df <- function() {
-  file_names <- sprintf("downfile (%i).txt", 1:10)
+  file_names <- sprintf("downfile (%i).txt", 1:11)
   file_names <- c("downfile.txt", file_names)
   txt_files <- paste0("~/Downloads/", file_names)
   districts <- c("大同區", "中山區", "中正區", "萬華區", "文山區", "大安區", "信義區", "南港區", "松山區", "內湖區", "士林區", "北投區") 

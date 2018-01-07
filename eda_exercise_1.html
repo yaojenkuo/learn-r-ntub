@@ -574,7 +574,7 @@ hh &lt;-<span class="st"> </span>hh[<span class="dv">1</span><span class="op">:<
 </section><section class="slide level2">
 <h2>整理房地產交易價格資料</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_district_house_price_df &lt;-<span class="st"> </span><span class="cf">function</span>() {
-  file_names &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&quot;downfile (%i).txt&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)
+  file_names &lt;-<span class="st"> </span><span class="kw">sprintf</span>(<span class="st">&quot;downfile (%i).txt&quot;</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">11</span>)
   file_names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;downfile.txt&quot;</span>, file_names)
   txt_files &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;~/Downloads/&quot;</span>, file_names)
   districts &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;大同區&quot;</span>, <span class="st">&quot;中山區&quot;</span>, <span class="st">&quot;中正區&quot;</span>, <span class="st">&quot;萬華區&quot;</span>, <span class="st">&quot;文山區&quot;</span>, <span class="st">&quot;大安區&quot;</span>, <span class="st">&quot;信義區&quot;</span>, <span class="st">&quot;南港區&quot;</span>, <span class="st">&quot;松山區&quot;</span>, <span class="st">&quot;內湖區&quot;</span>, <span class="st">&quot;士林區&quot;</span>, <span class="st">&quot;北投區&quot;</span>) 
