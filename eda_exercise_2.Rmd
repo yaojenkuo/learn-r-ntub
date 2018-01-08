@@ -1,0 +1,178 @@
+---
+title: "臺北市各行政區家戶所得、支出與房價：探索分析篇"
+author: 郭耀仁
+date: "`r Sys.Date()`"
+output: 
+  revealjs::revealjs_presentation:
+    theme: black
+    highlight: zenburn
+    center: true
+---
+
+# 載入資料
+
+## 資料連結
+
+- https://storage.googleapis.com/ntub_exercise/hh.csv
+- https://storage.googleapis.com/ntub_exercise/district_house_price.csv
+
+## 將資料載入
+
+```{r echo=FALSE}
+hh <- read.csv("https://storage.googleapis.com/ntub_exercise/hh.csv", stringsAsFactors = FALSE)
+district_house_price_df <- read.csv("https://storage.googleapis.com/ntub_exercise/district_house_price.csv", stringsAsFactors = FALSE)
+```
+
+```{r}
+head(hh)
+head(district_house_price_df)
+```
+
+# 家戶所得資料
+
+## 平均所得排行
+
+```{r echo=FALSE, message=FALSE}
+library(tidyverse)
+
+avg_income <- hh %>%
+  group_by(district) %>%
+  summarise(avg_income = mean(income_hh)) %>%
+  arrange(desc(avg_income))
+avg_income
+```
+
+## 平均可支配所得排行
+
+```{r echo=FALSE}
+avg_disposable_income <- hh %>%
+  mutate(disposable_income = income_hh - expense_hh_1 - expense_hh_2) %>%
+  group_by(district) %>%
+  summarise(avg_disposable_income = mean(disposable_income)) %>%
+  arrange(desc(avg_disposable_income))
+avg_disposable_income
+```
+
+## 可支配所得的變化趨勢用多個線圖顯示
+
+```{r echo=FALSE}
+disposable_income <- hh %>%
+  mutate(disposable_income = income_hh - expense_hh_1 - expense_hh_2) %>%
+  mutate(western_year = year + 1911)
+
+ggplot(disposable_income, aes(x = western_year, y = disposable_income, colour = district)) + 
+  geom_line() +
+  facet_wrap(~ district, ncol = 4) +
+  theme_minimal() +
+  ylab("") +
+  xlab("") +
+  theme(text = element_text(family = 'Heiti TC Light'),
+        legend.position="none")
+```
+
+## 可支配所得變化趨勢用一個線圖顯示
+
+```{r echo=FALSE}
+disposable_income <- hh %>%
+  mutate(disposable_income = income_hh - expense_hh_1 - expense_hh_2) %>%
+  mutate(western_year = year + 1911)
+ggplot(disposable_income, aes(x = western_year, y = disposable_income, colour = district)) + 
+  geom_line() +
+  theme_minimal() +
+  ylab("") +
+  xlab("") +
+  theme(text = element_text(family = 'Heiti TC Light'))
+```
+
+## （補充）使用 `shiny` 為上圖增加一個 **checkbox** 讓使用者選擇行政區
+
+```{r eval=FALSE}
+library(shiny)
+
+ui <- fluidPage(
+  titlePanel("行政區家戶所得變動趨勢"),
+  sidebarPanel(
+    checkboxGroupInput("districts", "Choose districts:",
+    choiceNames = unique(disposable_income$district),
+    choiceValues = unique(disposable_income$district),
+    selected = list("大同區")
+    )
+  ),
+  mainPanel(
+    plotlyOutput("trendPlot")
+  )
+)
+
+server <- function(input, output) {
+  filtered_df <- reactive(
+    disposable_income %>%
+      filter(district %in% input$districts)
+  )
+  a <- list(
+    showticklabels = TRUE,
+    dtick = 1,
+    title = ""
+  )
+  output$trendPlot <- renderPlotly({
+    filtered_df() %>%
+      plot_ly(x = ~western_year, y = ~disposable_income, type = 'scatter', mode = 'lines', color = ~district) %>%
+      layout(xaxis = a)
+  })
+}
+
+shinyApp(ui, server)
+```
+
+# 房價資料
+
+## 平均每坪單價排行
+
+```{r echo=FALSE}
+avg_house_price <- district_house_price_df %>%
+  group_by(district) %>%
+  summarise(avg_price_per = mean(price_per)) %>%
+  arrange(desc(avg_price_per))
+avg_house_price
+```
+
+# 整併資料
+
+## 2012 年各行政區的家戶**可支配所得**與**平均每坪單價**散佈圖
+
+```{r echo=FALSE, message=FALSE}
+hh_2012 <- hh %>%
+  filter(year == 101) %>%
+  mutate(disposable_income = income_hh - expense_hh_1 - expense_hh_2)
+avg_price <- district_house_price_df %>%
+  group_by(district) %>%
+  summarise(avg_price_per = mean(price_per))
+merged_tbl <- hh_2012 %>%
+  as.tibble() %>%
+  left_join(avg_price)
+ggplot(merged_tbl, aes(x = disposable_income, y = avg_price_per, colour = district)) +
+  geom_point() +
+  theme_minimal() +
+  theme(text = element_text(family = 'Heiti TC Light'))
+```
+
+## 請在上圖中加入圓點大小來表示行政區的戶數（`hh`）
+
+```{r echo=FALSE}
+ggplot(merged_tbl, aes(x = disposable_income, y = avg_price_per, colour = district, size = hh)) +
+  geom_point() +
+  theme_minimal() +
+  theme(text = element_text(family = 'Heiti TC Light'))
+```
+
+## 利用 `ggplotly()` 將上圖轉換為具有 `plotly` 效果的氣泡圖
+
+```{r echo=FALSE, message=FALSE}
+library(plotly)
+
+p <- ggplot(merged_tbl, aes(x = disposable_income, y = avg_price_per, colour = district, size = hh)) +
+  geom_point() +
+  theme_minimal() +
+  theme(text = element_text(family = 'Heiti TC Light'),
+        legend.position = "none")
+ggplotly(p)
+```
