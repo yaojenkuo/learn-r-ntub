@@ -33,6 +33,7 @@ R 語言程式設計與視覺化應用入門課程網頁，課程時數 30 小�
 - [Exploratory Data Analysis: Electric Power Consumption](http://yaojenkuo.io/learn-r-ntub/jhu_eda_w1.html)
 - [Exploratory Data Analysis: PM2.5](http://yaojenkuo.io/learn-r-ntub/jhu_eda_w4.html)
 - [臺北市各行政區家戶所得、支出與房價：資料篇](http://yaojenkuo.io/learn-r-ntub/eda_exercise_1.html)
+- [臺北市各行政區家戶所得、支出與房價：探索分析篇](http://yaojenkuo.io/learn-r-ntub/eda_exercise_2.html)
 
 ### 錄影播放清單
 
