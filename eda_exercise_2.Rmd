@@ -176,3 +176,29 @@ p <- ggplot(merged_tbl, aes(x = disposable_income, y = avg_price_per, colour = d
         legend.position = "none")
 ggplotly(p)
 ```
+
+# Let's talk about something else
+
+## This is just a opening for you, DO NOT feel frustrated or even hate it
+
+## Neither of us could tell you the RIGHT career path
+
+![](https://www.burnetts.com/wp-content/uploads/2016/12/Burnetts-Staffing-Choosing-the-right-IT-career-path-01.png)
+
+## That's why internship and junior position matters
+
+![](http://cms.marketplace.org/sites/default/files/styles/primary-image-610x340/public/internship-movie-poster.jpg?itok=hsbKk8B8)
+
+## To learn programming **DOES NOT** mean you have to be a programmer
+
+![](https://lh3.googleusercontent.com/oMXLiHIFWHGsCPcexzZmbRYee7FN5GCjWa0Vvr38mOYHDItsjPrUSrfjspmydUxopL0=w300)
+
+## These skills might help you balancing life/work
+
+![](https://www.kidscodecs.com/wp-content/uploads/2015/06/notebook-automate-boring-stuff.jpg)
+
+## Never stop learning
+
+![](http://mirellietc.com/wp-content/uploads/2017/03/einstein-never-stop-learning.jpg)
+
+## A bit of my early days...
