@@ -202,3 +202,7 @@ ggplotly(p)
 ![](http://mirellietc.com/wp-content/uploads/2017/03/einstein-never-stop-learning.jpg)
 
 ## A bit of my early days...
+
+---
+
+![](http://ws1.sinaimg.cn/large/9150e4e5gy1fc1tkwmlu9j20c80963z1.jpg)
