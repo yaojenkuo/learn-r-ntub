@@ -1,0 +1,224 @@
+---
+title: "Getting Data with R"
+author: "Tony Yao-Jen Kuo"
+output:
+  revealjs::revealjs_presentation:
+    highlight: pygments
+    reveal_options:
+      slideNumber: true
+      previewLinks: true
+---
+
+# How to get data with R
+
+## Overview
+
+>- From files
+>- From web
+
+# Getting data from files
+
+## Using `read.csv()` for CSV files
+
+- CSV stands for **comma separated values**
+
+```{r}
+file_url <- "https://storage.googleapis.com/ds_data_import/chicago_bulls_1995_1996.csv"
+df <- read.csv(file_url, stringsAsFactors = FALSE) # personal preference...
+dim(df)
+```
+
+## Using `read.table()` for general tabular text files
+
+```{r}
+file_url <- "https://storage.googleapis.com/ds_data_import/chicago_bulls_1995_1996.txt"
+df <- read.table(file_url, header = TRUE, sep = ";")
+dim(df)
+```
+
+## Using `readxl` package for Excel spreadsheets
+
+```{r eval=FALSE}
+install.packages("readxl")
+```
+
+```{r}
+library(readxl)
+
+file_path <- "/Users/kuoyaojen/Downloads/fav_nba_teams.xlsx"
+chicago_bulls <- read_excel(file_path)
+head(chicago_bulls)
+```
+
+## Importing other sheets
+
+```{r eval=FALSE}
+boston_celtics <- read_excel(file_path, sheet = "boston_celtics_2007_2008")
+head(boston_celtics)
+```
+
+## Reading specific cell ranges
+
+```{r eval=FALSE}
+partial_chi <- read_excel(file_path, range = "B8:C13", col_names = FALSE)
+knitr::kable(partial_chi)
+```
+
+## Using `jsonlite` package for JSON files
+
+```{r eval=FALSE}
+install.packages("jsonlite")
+```
+
+```{r}
+library(jsonlite)
+
+file_url <- "https://storage.googleapis.com/ds_data_import/chicago_bulls_1995_1996.json"
+chicago_bulls <- fromJSON(file_url)
+class(chicago_bulls)
+```
+
+## A quick review
+
+|Source|Format|
+|------|------|
+|CSV|`data.frame`|
+|TXT|`data.frame`|
+|Spreadsheet|`data.frame`|
+|JSON|`list`|
+
+# Getting data from web
+
+## `jsonlite` for RESTful APIs
+
+```{r}
+library(jsonlite)
+
+web_url <- "https://ecshweb.pchome.com.tw/search/v3.3/all/results?q=macbook&page=1&sort=rnk/dc"
+macbook <- fromJSON(web_url)
+class(macbook)
+names(macbook)
+```
+
+## `rvest` for HTML documents
+
+```{r eval=FALSE}
+install.packages("rvest")
+```
+
+## The use of `%>%` operator
+
+- Originated from `magrittr` package
+- Now an important operator for the `tidyverse` eco-system
+- Can be generated with: Ctrl + Shift + m
+
+## How to call a function
+
+```{r}
+library(rvest)
+
+# traditional
+sum(1:10)
+
+# using %>%
+1:10 %>% 
+  sum()
+```
+
+## More examples
+
+```{r}
+# traditional
+toupper(paste0(strsplit("Jeremy Lin", split = " ")[[1]][2], "sanity"))
+
+# using %>% 
+"Jeremy Lin" %>% 
+  strsplit(split = " ") %>% 
+  `[[` (1) %>% 
+  `[` (2) %>% 
+  paste0("sanity") %>% 
+  toupper()
+```
+
+## `read_html()` for reading all html contents
+
+```{r}
+library(rvest)
+
+mi_url <- "https://www.imdb.com/title/tt4912910/"
+html_doc <- mi_url %>% 
+  read_html()
+```
+
+## `html_nodes()` to locate elements
+
+```{r}
+html_doc %>% 
+  html_nodes("strong span") # CSS selector
+```
+
+## `html_text()` to remove tags
+
+```{r}
+html_doc %>% 
+  html_nodes("strong span") %>% 
+  html_text()
+```
+
+## Data of html document are characters
+
+```{r}
+html_doc %>% 
+  html_nodes("strong span") %>% 
+  html_text() %>% 
+  as.numeric()
+```
+
+## How to locate elements?
+
+>- By CSS Selectors
+>- By XPath
+
+# The use of Chrome plugins
+
+## SelectorGadget
+
+A Chrome plugin for CSS selectors:  [SelectorGadget](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb)
+
+## How to use SelectorGadget?
+
+## XPath Helper
+
+A Chrome plugin for XPath: [XPath Helper](https://chrome.google.com/webstore/detail/xpath-helper/hgimnogjllphhhkhlmebbmlgjoejdpjl)
+
+## How to use XPath Helper?
+
+## Practices: Getting genre information from IMDB.com
+
+```{r}
+mi_url <- "https://www.imdb.com/title/tt4912910/"
+```
+
+```{r echo=FALSE}
+html_doc %>% 
+  html_nodes(".subtext a") %>% 
+  html_text() %>% 
+  `[` (-4)
+```
+
+## Practices: Getting cast information from IMDB.com
+
+```{r}
+mi_url <- "https://www.imdb.com/title/tt4912910/"
+```
+
+```{r echo=FALSE}
+html_doc %>% 
+  html_nodes(".primary_photo+ td a") %>% 
+  html_text()
+```
+
+## Practices: Getting price ranking from Yahoo! Stock
+
+- Top 100 for TSE: <https://tw.stock.yahoo.com/d/i/rank.php?t=pri&e=tse&n=100>
+- Top 100 for OTC: <https://tw.stock.yahoo.com/d/i/rank.php?t=pri&e=otc&n=100>
