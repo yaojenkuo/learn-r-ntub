@@ -30,7 +30,8 @@ R 語言程式設計與視覺化應用入門，課程時數 30 小時。
 
 ## 錄影播放清單
 
-<https://www.youtube.com/playlist?list=PLEq7iw5uOtuUv3rlKhnyKJcxuSIEd_NTj>
+- [2018-Autumn](https://www.youtube.com/playlist?list=PLEq7iw5uOtuUv3rlKhnyKJcxuSIEd_NTj)
+- [2017-Autumn](https://www.youtube.com/playlist?list=PLEq7iw5uOtuUYkUIbMjdsMnsUGd4N2TzW)
 
 ## 互動練習
 
@@ -49,7 +50,7 @@ R 語言程式設計與視覺化應用入門，課程時數 30 小時。
 |Date|Weekday|
 |----|-------|
 |~~2018-09-20~~|~~星期四~~|
-|2018-09-25|星期二|
+|~~2018-09-25~~|~~星期二~~|
 |2018-09-27|星期四|
 |2018-10-02|星期二|
 |2018-10-04|星期四|
