@@ -10,6 +10,8 @@ R 語言程式設計與視覺化應用入門，課程時數 30 小時。
 
 [Midterm Assignment](https://yaojenkuo.io/learn-r-ntub/midterm#/)
 
+[上傳連結](https://goo.gl/forms/6FEHYSj6ikBvMqai1)
+
 ## 課程投影片
 
 ### HTML 格式
@@ -45,8 +47,8 @@ R 語言程式設計與視覺化應用入門，課程時數 30 小時。
 ## 延伸閱讀
 
 - [輕鬆學習 R 語言 - 紙本書](http://www.books.com.tw/products/0010763975)
-- [輕鬆學習 R 語言 - 網頁版](http://www.learn-r-the-easy-way.tw)
-- [Datainpoint](https://medium.com/datainpoint)
+- [輕鬆學習 R 語言 - 第一版](http://www.learn-r-the-easy-way.tw)
+- [輕鬆學習 R 語言 - 第二版](https://www.datainpoint.com/r-essentials/)
 - [DataCamp](https://www.datacamp.com?tap_a=5644-dce66f&tap_s=194899-1fb421)
 
 ## 上課日期
@@ -66,7 +68,7 @@ R 語言程式設計與視覺化應用入門，課程時數 30 小時。
 |~~2018-10-30~~|~~星期二~~|
 |~~2018-11-01~~|~~星期四~~|
 |~~2018-11-06~~|~~星期二~~|
-|2018-11-08|星期四|
+|~~2018-11-08~~|~~星期四~~|
 |2018-11-20|星期二|
 |2018-11-22|星期四|
 |2018-11-29|星期四|
